@@ -56,7 +56,7 @@ var arrPhilosopherChoicess = [
 	"Epicurus",
 	"Aristotle",
 	"Marcus Aurelius",
-	"Augustine",
+	// "Augustine",
 	"Thomas Aquinas",
 	"Michel de Montaigne",
 	"Blaise Pascal",
@@ -90,158 +90,170 @@ var objTrivia = [
       "question": 'Who famously coined the phrase " I think therefore I am"?',
       "answers": ["Motaigne", "Foucault", "Immanuel Kant", "Rene Descartes"],
       "correct": "Rene Descartes",
-      "src": "assets/images/Rene_Descartes.png"
+      "src": "assets/images/Rene_Descartes.png",
+      "quote": "It is not enough to have a good mind; the main thing is to use it well."
     },
    { 
       "question": "Which philosopher created the concept of the Übermensch?",
       "answers": [" Jean Paul Sartre", "La Rouchfoucauld", "Friedrich Nietzsche", "Edmund Burke"],  
       "correct": "Friedrich Nietzsche",
-      "src": "assets/images/nietzsche.png"
+      "src": "assets/images/nietzsche.png",
+      "quote": "And those who were seen dancing were thought to be insane by those who could not hear the music."
     },
     { 
       "question": "What school of philosophy did Marcus Aurelius practice?",
       "answers": ["Nihlism", "Stoicism", "Utilitarianism", "Taoism"],
       "correct": "Stoicism",
-      "src": "assets/images/aurelius.png"
+      "src": "assets/images/aurelius.png",
+      "quote": "Everything we hear is an opinion, not a fact. Everything we see is a perspective, not the truth."
     },
     { 
       "question": "What is hell in Jean Paul Sartre's play Huis Clos?",
       "answers": ["Home of the Devil", "The Human Mind", "Other People", "Capitalism"],  
       "correct": "Other People",
-      "src": "assets/images/Sartre.png"
+      "src": "assets/images/Sartre.png",
+      "quote": "Every existing thing is born without reason, prolongs itself out of weakness, and dies by chance."
     },
     { 
       "question": "Which philosopher thought that a virtuous ordinary life is just as worth striving for as one of excellence?",
       "answers": ["Michel de Montaigne", "Renes Descartes", "Albert Camus", "La Rouchfoucauld"],  
       "correct": "Michel de Montaigne",
-      "src": "assets/images/montaigne.png"
+      "src": "assets/images/montaigne.png",
+      "quote": "A good marriage would be between a blind wife and a deaf husband."
     },
     { 
       "question": "Which school of thought did Blaise Pascal advocate for?",
       "answers": ["Optimisim", "Pessimism", "Nihlism", "Rationalism"],  
       "correct": "Pessimism",
-      "src": "assets/images/pascal.png"
+      "src": "assets/images/pascal.png",
+      "quote": "All men's miseries derive from not being able to sit in a quiet room alone."
     },
     { 
       "question": "Which Philosopher thought we are more influenced by our feelings than by reason?",
       "answers": ["Georg Hegel", "Thomas Aquinas", "Epicurus", "David Hume"],  
       "correct": "David Hume",
-      "src": "assets/images/David_Hume.png"
-    }
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",	
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",	
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",
-    //   "src": ""
-    // },
-    // { 
-    //   "question": "",
-    //   "answers": [""],  
-    //   "correct": "",	
-    //   "src": ""
-    // },
-    // { 
-    // "question": "",
-    // "answers": [""],  
-    // "correct": "",	
-    // "src": ""
- 	  // },
+      "src": "assets/images/David_Hume.png",
+      "quote": "The life of man is of no greater importance to the universe than that of an oyster."
+    },
+    { 
+      "question": 'This Philosopher is known as "The Philosopher" and is also known for  tutoring Alexander the Great',
+      "answers": ["Plato","Epicurus","Socrates","Aristotle"],  
+      "correct": "Aristotle",
+      "src": "assets/images/aristotle.png",
+      "quote": ""
+    },
+    { 
+      "question": "Which philosopher introduced the idea of the Sublime?",
+      "answers": ["Edmund Burke", "Epicurus", "Michel Foucault","La Rouchfoucauld"],  
+      "correct": "Edmund Burke",
+      "src": "assets/images/Burke.png",
+      "quote": "To read without reflecting is like eating without digesting."
+    },
+    { 
+      "question": 'Which of the following won a nobel prize in literature for his novel "The Stranger"?',
+      "answers": ["Albert Camus", "Jean Paul Sartre", "Jaques Derrida", "Michel Foucault"],  
+      "correct": "Albert Camus",
+      "src": "assets/images/camus.png",
+      "quote": "In the depth of winter, I finally learned that within me there lay an invincible summer"
+    },
+    { 
+      "question": 'This philosopher who is well known for his Pessimism and Nihlism once said "only an idiot could think there is any point to any of this".',
+      "answers": ["Aristotle", "Emil Cioran", "Plato", "La Rouchfoucauld"],  
+      "correct": "Emil Cioran",
+      "src": "assets/images/cioran.png",
+      "quote": "The fact that life has no meaning is a reason to live - moreover, the only one."
+    },
+    { 
+      "question": "Who is best known for the popularization of the concepts of deconstruction, aporia, and logocentrism?",
+      "answers": ["Soren Kierkegaard", "Jaques Derrida", "Thomas Aquinas", "Plato"],  
+      "correct": "Jaques Derrida",
+      "src": "assets/images/Derrida.png",
+      "quote": "As soon as there is language, generality has entered the scene."
+    },
+    { 
+      "question": 'Which philosopher is widely misconceived of having indulgent tendencies due to establishing his "School of Happiness"?',
+      "answers": ["Michel de Montaigne", "Thomas Aquinas", "Epicurus", "Plato"],  
+      "correct": "Epicurus",	
+      "src": "assets/images/epicurus.png",
+      "quote": "Death is nothing to us, since when we are, death has not come, and when death has come, we are not."
+    },
+    { 
+      "question": "Whose philosophy advocated that things commonly seen as modern medical and social advancement, are actually less humane than in earlier societies?",
+      "answers": ["Emil Cioran","Michel Foucault", "David Hume", "Friedrich Nietzsche"],  
+      "correct": "Michel Foucault",
+      "src": "assets/images/foucault.png",
+      "quote": "In its function, the power to punish is not essentially different from that of curing or educating."
+    },
+    { 
+      "question": "Which philosopher inspired some of the fundamental ideas of Karl Marx?",
+      "answers": ["Georg Hegel", "Friedrich Nietzsche", "Plato", "Martin Heidegger"],  
+      "correct": "Georg Hegel",
+      "src": "assets/images/Hegel.png",
+      "quote": ""
+    },
+    { 
+      "question": 'Whose philosophy revolved around the confrontation of "Das Nichts" or "The Nothing"?',
+      "answers": ["Friedrich Nietzsche", "Immanuel Kant", "Martin Heidegger", "Arthur Schoppenhauer"],  
+      "correct": "Martin Heidegger",
+      "src": "assets/images/heidegger.png",
+      "quote": "Man acts as though he were the shaper and master of language, while in fact language remains the master of man"
+    },
+    { 
+      "question": "What concept is Immanuel Kant is best known for?",
+      "answers": ["The Sublime","Relative Moralism","Catergoical Imperative","Religious Fervor"],  
+      "correct": "Catergoical Imperative",
+      "src": "assets/images/Kant.png",
+      "quote": "Experience without theory is blind, but theory without experience is mere intellectual play."
+    },
+    { 
+      "question": 'Which philosopher wanted to help people reach Eudaimonia, or fulfillment, through the concept of "Know thyself"?',
+      "answers": ["Socrates","Epicurus","Marcus Aurelius","Plato"],  
+      "correct": "Plato",
+      "src": "assets/images/Plato.png",
+      "quote": "Wise men talk because they have something to say; fools, because they have to say something."
+    },
+    { 
+      "question": "La Rouchfoucauld was best known for which style of writing?",
+      "answers": ["Maxims", "Essays", "Narratives", "Lectures"],  
+      "correct": "Maxims",	
+      "src": "assets/images/Rouchfoucauld.png",
+      "quote": "There are some people who would have never fallen in love, if they had not heard there was such a thing."
+    },
+    { 
+      "question": "Which philosopher is best known for introducing tennants of buddhism to the West",
+      "answers": ["Soren Kierkegaard", "Georg Hegel", "Arthur Schoppenhauer", "Friedrich Nietzsche"],  
+      "correct": "Arthur Schoppenhauer",
+      "src": "assets/images/schoppenhauer.png",
+      "quote": ""
+    },
+    { 
+      "question": "Which philosopher despised democracy and the foolish means in which it steers society?",
+      "answers": ["Plato","Baruch Spinoza", "Marcus Aurelius", "Socrates"],  
+      "correct": "Socrates",
+      "src": "assets/images/socrates.png",
+      "quote": "True knowledge exists in knowing that you know nothing"
+    },
+    { 
+      "question": "Which philosopher is best known for his efforts to replace religion with a scientifically-based ethical system",
+      "answers": ["David Hume","Immanuel Kant","Renes Descartes","Epicurus"],  
+      "correct": "Baruch Spinoza",
+      "src": "assets/images/spinoza.png",
+      "quote": "Fear cannot be without hope nor hope without fear."
+    },
+    { 
+      "question": "What ideas were Thomas Aquinas best known for?",
+      "answers": ["Reconciling faith with reason","Chrisitanity is the only viable philosophy","Religion needs no reason","Scientology is a cult"],  
+      "correct": "Reconciling faith with reason",
+      "src": "assets/images/thomas_aquinas.png",
+      "quote": "Love takes up where knowledge leaves off."
+    },
+    { 
+      "question": "Whose main philosophical concept revolved around language and the way verbal communication triggers pictures in our mind for understanding?",
+      "answers": ["Baruch Spinoza", "Jaques Derrida","Albert Camus","Ludwig Wittgenstein"],  
+      "correct": "Ludwig Wittgenstein",
+      "src": "assets/images/wittgenstein.png",
+      "quote": "The limits of my language mean the limits of my world."
+    },
 ];
 	// jquery function that only runs contained content once the page is loaded
 $(function() {
@@ -327,16 +339,18 @@ function nextQuestion(){
 function answerChecker(){
 	console.log("ClickedIdIndex is " + clickedIdIndex);
 	console.log("randomQuestionIndex is " + randomQuestionIndex);
-	if (questionNumber == 10)
+	if (questionNumber > 10)
+		resultsPage();
 
-	else if (objTrivia[randomQuestionIndex].answers[clickedIdIndex] === objTrivia[randomQuestionIndex].correct) {
+	else if (objTrivia[randomQuestionIndex].answers[clickedIdIndex] === objTrivia[randomQuestionIndex].correct){
 		numberCorrect++;
 		correctAnswerPage();
 
 	}
-	else if (objTrivia[randomQuestionIndex].answers[clickedIdIndex] !== objTrivia[randomQuestionIndex].correct)
+	else if (objTrivia[randomQuestionIndex].answers[clickedIdIndex] !== objTrivia[randomQuestionIndex].correct){
 		numberIncorrect++;
 		incorrectAnswerPage();
+	}
 	else
 		return -1
 }
@@ -346,7 +360,7 @@ function correctAnswerPage(){
 	showPage("answer");
 	//line of code that displays random correct answer affirmation
 	$("#answer-result").text(arrCorrectAnswer[Math.floor(Math.random()*arrCorrectAnswer.length)]);
-	$("#answer-meme").attr("src", objTrivia[randomQuestionIndex].src);
+	$("#answer-image").attr("src", objTrivia[randomQuestionIndex].src);
 	$("#answer-text").text("");
 	transitionTimer();
 	questionSplicer();
@@ -373,6 +387,15 @@ function incorrectAnswerPage(){
 	transitionTimer();
 	questionSplicer();
 };
+
+function resultsPage(){
+	hidePage("answer");
+	hidePage("question")
+	showPage("results");
+	$("#correct-answers").text("Correct Answers: " + numberCorrect);
+	$("#incorrect-answers").text("Incorrect Answers: " + numberIncorrect);
+	$("#unanswered-questions").text("Unanswered Questions: " + numberUnanswered);	
+}
 
 // console.log(testResult)
 
