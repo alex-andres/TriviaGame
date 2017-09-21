@@ -41,15 +41,15 @@
 
 //shorthand for document.ready function
 // Declaration and Data Type & Valuse assignment of Variables
-var timerCount = 20;
-var transitionTimerCount = 4;
+
 var questionNumber = 1;
-var intervalId = "";
-var intervalId2 = "";
 var bolQuestionPage = false;	
 var testResult = "";
 var clickedId = "";
-var randomQuestionIndex = [];
+var randomQuestionIndex = 0;
+var numberCorrect = 0;
+var numberIncorrect = 0;
+var numberUnanswered = 0;
 var arrPhilosopherChoicess = [
 	"Socrates",
 	"Plato",
@@ -58,7 +58,7 @@ var arrPhilosopherChoicess = [
 	"Marcus Aurelius",
 	"Augustine",
 	"Thomas Aquinas",
-	"Michel de Motaigne",
+	"Michel de Montaigne",
 	"Blaise Pascal",
 	"La Rouchfoucauld",
 	"Baruch Spinoza",
@@ -108,13 +108,13 @@ var objTrivia = [
       "question": "What is hell in Jean Paul Sartre's play Huis Clos?",
       "answers": ["Home of the Devil", "The Human Mind", "Other People", "Capitalism"],  
       "correct": "Other People",
-      "src": ""
+      "src": "assets/images/Sartre.png"
     },
     { 
       "question": "Which philosopher thought that a virtuous ordinary life is just as worth striving for as one of excellence?",
-      "answers": ["Michel de Motaigne", "Renes Descartes", "Albert Camus", "La Rouchfoucauld"],  
-      "correct": "Michel de Motaigne",
-      "src": ""
+      "answers": ["Michel de Montaigne", "Renes Descartes", "Albert Camus", "La Rouchfoucauld"],  
+      "correct": "Michel de Montaigne",
+      "src": "assets/images/montaigne.png"
     },
     { 
       "question": "Which school of thought did Blaise Pascal advocate for?",
@@ -250,8 +250,8 @@ $(function() {
 		hidePage("title");
 		showPage("question");
 		questionNumberDisplay();
+		textGenerator()
 		timer();	
-
 	});
 
 
@@ -260,8 +260,11 @@ $(function() {
 	//function that stores the index of the clicked answer button in a var
 	$(".answer-choice").click(function() {
       clickedId = $(this).attr("id");
-  		clickedIdIndex = clickedId.substring(clickedId.length - 1) - 1
+  		clickedIdIndex = parseInt(clickedId.substring(clickedId.length - 1) - 1);
+  		console.log(clickedIdIndex);
   		answerChecker()
+  		bolQuestionPage = true;
+  		questionNumberDisplay();
    });
 	//function that causes restart button to hide results page and show title page
 	$("#restart-button").on("click", function(){
@@ -275,14 +278,13 @@ $(function() {
 		bolQuestionPage = false;	
 		testResult = "";
 		clickedId = "";
-		randomQuestionIndex = [];
+		randomQuestionIndex = 0;
 	});
-
 
 //function that generates a random index to generate a new question
 function questionRandomizer(){
 	randomQuestionIndex = Math.floor(Math.random() * objTrivia.length);
-	console.log(objTrivia.length);
+	console.log(randomQuestionIndex);
 
 };
 //function that splices the indexed random number from the objTrivia array
@@ -312,9 +314,8 @@ function textGenerator(){
 	for (var i = 1; i <= objTrivia[randomQuestionIndex].answers.length; i++) {
 		$("#answer-" + i).text(objTrivia[randomQuestionIndex].answers[i-1]);
 	};
-	console.log(randomQuestionIndex);
-	questionSplicer();
-	console.log(objTrivia.length);
+	timer();
+	;
 };
 console.log(randomQuestionIndex);
 //function that generates updated information for question page and transitions to next question page
@@ -324,13 +325,18 @@ function nextQuestion(){
 	hidePage("answer");
 }
 function answerChecker(){
-	if (objTrivia[randomQuestionIndex].answers[clickedIdIndex] === objTrivia[randomQuestionIndex].correct) {
+	console.log("ClickedIdIndex is " + clickedIdIndex);
+	console.log("randomQuestionIndex is " + randomQuestionIndex);
+	if (questionNumber == 10)
+
+	else if (objTrivia[randomQuestionIndex].answers[clickedIdIndex] === objTrivia[randomQuestionIndex].correct) {
+		numberCorrect++;
 		correctAnswerPage();
+
 	}
 	else if (objTrivia[randomQuestionIndex].answers[clickedIdIndex] !== objTrivia[randomQuestionIndex].correct)
+		numberIncorrect++;
 		incorrectAnswerPage();
-	else if (transitionTimerCount === 0)
-		timesUpPage();
 	else
 		return -1
 }
@@ -341,27 +347,31 @@ function correctAnswerPage(){
 	//line of code that displays random correct answer affirmation
 	$("#answer-result").text(arrCorrectAnswer[Math.floor(Math.random()*arrCorrectAnswer.length)]);
 	$("#answer-meme").attr("src", objTrivia[randomQuestionIndex].src);
+	$("#answer-text").text("");
 	transitionTimer();
+	questionSplicer();
 };
 
 function timesUpPage(){
 	hidePage("question");	
 	showPage("answer");
 	//line of code that displays random correct answer affirmation
-	$("#answer-result").text("Times Up!")
+	$("#answer-result").text("Times Up!");
 	$("#answer-image").attr("src", objTrivia[randomQuestionIndex].src);
-	$("#answer-text").text("Correct Answer: " + objTrivia[2].correct);
+	$("#answer-text").text("Correct Answer: " + objTrivia[randomQuestionIndex].correct);
+	numberUnanswered ++
 	transitionTimer();
+	questionSplicer();
 };
 function incorrectAnswerPage(){
 	hidePage("question");	
 	showPage("answer");
-	//line of code that displays random correct answer affirmation
-	$("#answer-result").text(arrIncorrectAnswer[Math.floor(Math.random()*arrIncorrectAnswer.length)])
-	console.log(randomQuestionIndex);
-	// $("#answer-image").attr("src", objTrivia[randomQuestionIndex].src);
-	$("#answer-text").text("Correct Answer: " + objTrivia[2].correct);
+	//line of code that displays random incorrect answer negation
+	$("#answer-result").text(arrIncorrectAnswer[Math.floor(Math.random() * arrIncorrectAnswer.length)]);
+	$("#answer-image").attr("src", objTrivia[randomQuestionIndex].src);
+	$("#answer-text").text("Correct Answer: " + objTrivia[randomQuestionIndex].correct);
 	transitionTimer();
+	questionSplicer();
 };
 
 // console.log(testResult)
@@ -371,6 +381,8 @@ function incorrectAnswerPage(){
 
 
 function transitionTimer(){
+	var transitionTimerCount = 4;
+	var intervalId2 = "";
 	function run() {
     intervalId2 = setInterval(decrement, 1000);
   }
@@ -381,6 +393,7 @@ function transitionTimer(){
     if (transitionTimerCount === 0) {
     	stop();
     	nextQuestion();
+    	bolQuestionPage = false;
 
 
 
@@ -390,9 +403,11 @@ function transitionTimer(){
     //  Clears our intervalId
     //  We just pass the name of the interval
     //  to the clearInterval function.
-    clearInterval(intervalId);
-  }
+    clearInterval(intervalId2);
+  	};
 	}
+	run();
+
 };
  
 
@@ -401,8 +416,12 @@ function transitionTimer(){
 function timer() {
   //  The run function sets an interval
   //  that runs the decrement function once a second.
+  var timerCount = 20;
+  $("#show-timerCount").text("Time Remaining: " + timerCount + " seconds");
+  var intervalId = "";
+
   function run() {
-    intervalId = setInterval(decrement, 100);
+    intervalId = setInterval(decrement, 1000);
   }
 
   //  The decrement function.
@@ -413,12 +432,15 @@ function timer() {
     $("#show-timerCount").text("Time Remaining: " + timerCount + " seconds");
     //  Once timerCount hits zero...
     
-    if (timerCount === 0) {
+    if (bolQuestionPage === true){ 
+	    stop();
+	   }
+
+    else if	(timerCount === 0) {
     	stop();
-    	incorrectAnswerPage();
-
-
+    	timesUpPage();
     }
+
   }
   function stop() {
 
@@ -435,5 +457,4 @@ function timer() {
 //  Execute the run function.
 };
 
-textGenerator();
 });
