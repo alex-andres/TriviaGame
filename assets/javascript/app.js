@@ -90,7 +90,7 @@ var objTrivia = [
       "question": 'Who famously coined the phrase " I think therefore I am"?',
       "answers": ["Motaigne", "Foucault", "Immanuel Kant", "Rene Descartes"],
       "correct": "Rene Descartes",
-      "src": "assets/images/Rene_Descartes.png",
+      "src": "assets/images/descartes.png",
       "quote": "It is not enough to have a good mind; the main thing is to use it well."
     },
    { 
@@ -111,7 +111,7 @@ var objTrivia = [
       "question": "What is hell in Jean Paul Sartre's play Huis Clos?",
       "answers": ["Home of the Devil", "The Human Mind", "Other People", "Capitalism"],  
       "correct": "Other People",
-      "src": "assets/images/Sartre.png",
+      "src": "assets/images/sartre.png",
       "quote": "Every existing thing is born without reason, prolongs itself out of weakness, and dies by chance."
     },
     { 
@@ -132,7 +132,7 @@ var objTrivia = [
       "question": "Which Philosopher thought we are more influenced by our feelings than by reason?",
       "answers": ["Georg Hegel", "Thomas Aquinas", "Epicurus", "David Hume"],  
       "correct": "David Hume",
-      "src": "assets/images/David_Hume.png",
+      "src": "assets/images/hume.png",
       "quote": "The life of man is of no greater importance to the universe than that of an oyster."
     },
     { 
@@ -146,7 +146,7 @@ var objTrivia = [
       "question": "Which philosopher introduced the idea of the Sublime?",
       "answers": ["Edmund Burke", "Epicurus", "Michel Foucault","La Rouchfoucauld"],  
       "correct": "Edmund Burke",
-      "src": "assets/images/Burke.png",
+      "src": "assets/images/burke.png",
       "quote": "To read without reflecting is like eating without digesting."
     },
     { 
@@ -167,7 +167,7 @@ var objTrivia = [
       "question": "Who is best known for the popularization of the concepts of deconstruction, aporia, and logocentrism?",
       "answers": ["Soren Kierkegaard", "Jaques Derrida", "Thomas Aquinas", "Plato"],  
       "correct": "Jaques Derrida",
-      "src": "assets/images/Derrida.png",
+      "src": "assets/images/derrida.png",
       "quote": "As soon as there is language, generality has entered the scene."
     },
     { 
@@ -188,7 +188,7 @@ var objTrivia = [
       "question": "Which philosopher inspired some of the fundamental ideas of Karl Marx?",
       "answers": ["Georg Hegel", "Friedrich Nietzsche", "Plato", "Martin Heidegger"],  
       "correct": "Georg Hegel",
-      "src": "assets/images/Hegel.png",
+      "src": "assets/images/hegel.png",
       "quote": ""
     },
     { 
@@ -202,21 +202,21 @@ var objTrivia = [
       "question": "What concept is Immanuel Kant is best known for?",
       "answers": ["The Sublime","Relative Moralism","Catergoical Imperative","Religious Fervor"],  
       "correct": "Catergoical Imperative",
-      "src": "assets/images/Kant.png",
+      "src": "assets/images/kant.png",
       "quote": "Experience without theory is blind, but theory without experience is mere intellectual play."
     },
     { 
       "question": 'Which philosopher wanted to help people reach Eudaimonia, or fulfillment, through the concept of "Know thyself"?',
       "answers": ["Socrates","Epicurus","Marcus Aurelius","Plato"],  
       "correct": "Plato",
-      "src": "assets/images/Plato.png",
+      "src": "assets/images/plato.png",
       "quote": "Wise men talk because they have something to say; fools, because they have to say something."
     },
     { 
       "question": "La Rouchfoucauld was best known for which style of writing?",
       "answers": ["Maxims", "Essays", "Narratives", "Lectures"],  
       "correct": "Maxims",	
-      "src": "assets/images/Rouchfoucauld.png",
+      "src": "assets/images/rouchfoucauld.png",
       "quote": "There are some people who would have never fallen in love, if they had not heard there was such a thing."
     },
     { 
@@ -244,7 +244,7 @@ var objTrivia = [
       "question": "What ideas were Thomas Aquinas best known for?",
       "answers": ["Reconciling faith with reason","Chrisitanity is the only viable philosophy","Religion needs no reason","Scientology is a cult"],  
       "correct": "Reconciling faith with reason",
-      "src": "assets/images/thomas_aquinas.png",
+      "src": "assets/images/aquinas.png",
       "quote": "Love takes up where knowledge leaves off."
     },
     { 
@@ -361,7 +361,7 @@ function correctAnswerPage(){
 	//line of code that displays random correct answer affirmation
 	$("#answer-result").text(arrCorrectAnswer[Math.floor(Math.random()*arrCorrectAnswer.length)]);
 	$("#answer-image").attr("src", objTrivia[randomQuestionIndex].src);
-	$("#answer-text").text("");
+	$("#answer-text").text('"'+ objTrivia[randomQuestionIndex].quote +'"');
 	transitionTimer();
 	questionSplicer();
 };
@@ -404,7 +404,7 @@ function resultsPage(){
 
 
 function transitionTimer(){
-	var transitionTimerCount = 4;
+	var transitionTimerCount = 6;
 	var intervalId2 = "";
 	function run() {
     intervalId2 = setInterval(decrement, 1000);

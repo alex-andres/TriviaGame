@@ -20,6 +20,22 @@ padding-top: 25px;
 button{
 	padding: 5px;
 	margin: 10px;
-	width: 100%;	
+	width: 100%;
+	background-color: rgb(253, 253, 253);	
+	font-family: 'Cormorant Garamond', serif;
+	font-size: 1.5vw;
+  white-space: normal;	
+}
+button:hover {
+    background-color: rgb(155, 155, 155);
+}
+body{
+	background-image: url("../images/Bouncing-philosophers.gif");
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: 'Cormorant Garamond', serif;
+	text-align: center;
+
 }
 
