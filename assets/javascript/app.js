@@ -42,129 +42,15 @@
 //shorthand for document.ready function
 // Declaration and Data Type & Valuse assignment of Variables
 var timerCount = 20;
+var transitionTimerCount = 4;
+var questionNumber = 0;
 var intervalId = "";
+var intervalId2 = "";
 var bolQuestionPage = false;	
 var testResult = "";
 var clickedId = "";
 var randomQuestion = [];
-
-var objectQuestions = {
-	arrQuestion1: ['Who famously coined the phrase " I think therefore I am"?', "Renes Descartes"]
-}
-
-var objTrivia = [
-    { 
-      "question": 'Who famously coined the phrase " I think therefore I am"?',
-      "choice": ["Motaigne", "Foucault", "Immanuel Kant", "Rene Descartes"],
-      "correct": ["Rene Descartes"]
-   },
-   { 
-      "question": "Which philosopher created the concept of the Übermensch?",
-      "choice": [" Jean Paul Sartre", "La Rouchfoucauld", "Friedrich Nietzsche", "Edmund Burke"],  
-      "correct": ["Friedrich Nietzsche"]
-   },
-    { 
-      "question": "What school of philosophy did Marcus Aurelius practice?",
-      "choice": ["Nihlism", "Stoicism", "Utilitarianism", "Taoism"],
-      "correct": ["Stoicism"]
-   },
-    { 
-      "question": "What is hell in Jean Paul Sartre's play Huis Clos?",
-      "choice": ["Home of the Devil", "the human mind", "Other People", "Capitalism"],  
-      "correct": ["Other People"]
-   },
-    { 
-        "question": "Which philosopher thought that a virtuous ordinary life is just as worth striving for as one of excellence?",
-        "choice": ["Michel de Motaigne", "Renes Descartes", "Albert Camus", "La Rouchfoucauld"],  
-        "correct": ["Michel de Motaigne"]
-   },
-    { 
-        "question": "Which school of thought did Blaise Pascal advocate for?",
-        "choice": ["Optimisim", "Pessimism", "Nihlism", "Rationalism"],  
-        "correct": ["Pessimism"]
-   },
-    { 
-        "question": "Which Philosopher thought we are more influenced by our feelings than by reason?",
-        "choice": ["Georg Hegel", "Thomas Aquinas", "Epicurus", "David Hume"],  
-        "correct": ["David Hume"]
-   },
-   //  { 
-   //      "question": "",
-   //      "choice": [""],  
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "choice": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "choice": [""],  
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "choice": [""],  
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "choice": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "choice": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "choice": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "choice": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "choice": [""],
-   // },
-   //  { 
-   //      "question": "",
-   //      "choice": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "choice": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "choice": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "choice": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "choice": [""],
-   //      "correct": [""]
-   // }
-
-
-
-];
-
-console.log(objTrivia.length);
-
-var arrPhilosopherChoices =[
+var arrPhilosopherChoicess = [
 	"Socrates",
 	"Plato",
 	"Epicurus",
@@ -193,6 +79,123 @@ var arrPhilosopherChoices =[
 	"Emil Cioran"
 ];
 
+var objectQuestions = {
+	arrQuestion1: ['Who famously coined the phrase " I think therefore I am"?', "Renes Descartes"]
+}
+var arrCorrectAnswer = ["Correct!", "You Got It!", "Right-o!", "You're Doing it Peter!", "Correctamundo!", "You're Right!"]
+
+var objTrivia = [
+    { 
+      "question": 'Who famously coined the phrase " I think therefore I am"?',
+      "answers": ["Motaigne", "Foucault", "Immanuel Kant", "Rene Descartes"],
+      "correct": ["Rene Descartes"]
+   },
+   { 
+      "question": "Which philosopher created the concept of the Übermensch?",
+      "answers": [" Jean Paul Sartre", "La Rouchfoucauld", "Friedrich Nietzsche", "Edmund Burke"],  
+      "correct": ["Friedrich Nietzsche"]
+   },
+    { 
+      "question": "What school of philosophy did Marcus Aurelius practice?",
+      "answers": ["Nihlism", "Stoicism", "Utilitarianism", "Taoism"],
+      "correct": ["Stoicism"]
+   },
+    { 
+      "question": "What is hell in Jean Paul Sartre's play Huis Clos?",
+      "answers": ["Home of the Devil", "The Human Mind", "Other People", "Capitalism"],  
+      "correct": ["Other People"]
+   },
+    { 
+        "question": "Which philosopher thought that a virtuous ordinary life is just as worth striving for as one of excellence?",
+        "answers": ["Michel de Motaigne", "Renes Descartes", "Albert Camus", "La Rouchfoucauld"],  
+        "correct": ["Michel de Motaigne"]
+   },
+    { 
+        "question": "Which school of thought did Blaise Pascal advocate for?",
+        "answers": ["Optimisim", "Pessimism", "Nihlism", "Rationalism"],  
+        "correct": ["Pessimism"]
+   },
+    { 
+        "question": "Which Philosopher thought we are more influenced by our feelings than by reason?",
+        "answers": ["Georg Hegel", "Thomas Aquinas", "Epicurus", "David Hume"],  
+        "correct": ["David Hume"]
+   },
+   //  { 
+   //      "question": "",
+   //      "answers": [""],  
+   //      "correct": [""]
+   // },
+   //  { 
+   //      "question": "",
+   //      "answers": [""],
+   //      "correct": [""]
+   // },
+   //  { 
+   //      "question": "",
+   //      "answers": [""],  
+   //      "correct": [""]
+   // },
+   //  { 
+   //      "question": "",
+   //      "answers": [""],  
+   //      "correct": [""]
+   // },
+   //  { 
+   //      "question": "",
+   //      "answers": [""],
+   //      "correct": [""]
+   // },
+   //  { 
+   //      "question": "",
+   //      "answers": [""],
+   //      "correct": [""]
+   // },
+   //  { 
+   //      "question": "",
+   //      "answers": [""],
+   //      "correct": [""]
+   // },
+   //  { 
+   //      "question": "",
+   //      "answers": [""],
+   //      "correct": [""]
+   // },
+   //  { 
+   //      "question": "",
+   //      "answers": [""],
+   // },
+   //  { 
+   //      "question": "",
+   //      "answers": [""],
+   //      "correct": [""]
+   // },
+   //  { 
+   //      "question": "",
+   //      "answers": [""],
+   //      "correct": [""]
+   // },
+   //  { 
+   //      "question": "",
+   //      "answers": [""],
+   //      "correct": [""]
+   // },
+   //  { 
+   //      "question": "",
+   //      "answers": [""],
+   //      "correct": [""]
+   // },
+   //  { 
+   //      "question": "",
+   //      "answers": [""],
+   //      "correct": [""]
+   // }
+
+
+
+];
+
+
+
 //function that generates a random index to generate a new question
 function questionRandomizer(){
 	randomQuestion = Math.floor(Math.random() * objTrivia.length);
@@ -206,21 +209,42 @@ function questionSplicer(){
 
 console.log(randomQuestion);
 
+function hidePage(pageName){
+	$("#" + pageName + "-page").addClass("hide");
+};
+function showPage(pageName){
+	$("#" + pageName + "-page").removeClass("hide");
+};
 
-function answerTextGenerator(){
-	
-}
 	
 
-//function that generates
-function questionTextGenerator(){
+//function that generates text for 
+function textGenerator(){
 	questionRandomizer();
 	$("#question-text").text(objTrivia[randomQuestion].question);
+	for (var i = 1; i <= objTrivia[randomQuestion].answers.length; i++) {
+		$("#answer-" + i).text(objTrivia[randomQuestion].answers[i-1]);
+	};
 	questionSplicer();
 	console.log(objTrivia.length);
 }
 
+function nextQuestion(){
+	textGenerator();
+}
 
+function correctAnswerPage(){
+	hidePage("question");	
+	showPage("answer");
+	//line of code that displays random correct answer affirmation
+	$("#answer-result").text(arrCorrectAnswer[Math.floor(Math.random()*arrCorrectAnswer.length)])
+	$("#answer-meme").attr("src", "./assets/images/foucalt.png" )
+	// setInterval()
+};
+
+function incorrectAnswerPage(){
+
+};
 
 // console.log(testResult)
 
@@ -240,22 +264,41 @@ $(function() {
 		$("#title-page").removeClass("hide");	
 	});
 
-	//function that stores the id of the clicked answer button in a var
+	//function that stores the index of the clicked answer button in a var
 	$(".answer-choice").click(function() {
-
       clickedId = $(this).attr("id");
   		clickedIdIndex = clickedId.substring(clickedId.length - 1) - 1
-  		console.log(clickedIdIndex);
    });
 
 
+
+function transitionTimer(){
+	function run() {
+    intervalId2 = setInterval(decrement, 1000);
+  }
+	function decrement() {
+    //  Decrease timerCount by one.
+    timerCount--;
+    //  Show the timerCount in the #show-timerCount tag.
+    $("#show-timerCount").text("Time Remaining: " + timerCount + " seconds");
+    //  Once timerCount hits zero...
+    
+    if (timerCount === 0) {
+    	nextQuestion
+
+
+    }
+	}
+};
  
+
+
 
 function timer() {
   //  The run function sets an interval
   //  that runs the decrement function once a second.
   function run() {
-    intervalId = setInterval(decrement, 1000);
+    intervalId = setInterval(decrement, 100);
   }
 
   //  The decrement function.
@@ -265,13 +308,28 @@ function timer() {
     //  Show the timerCount in the #show-timerCount tag.
     $("#show-timerCount").text("Time Remaining: " + timerCount + " seconds");
     //  Once timerCount hits zero...
+    
     if (timerCount === 0) {
-      //  ...run the generateQuestion function.
-      ;
+    	stop();
+    	correctAnswerPage()
+
+
     }
   }
+  function stop() {
 
-}
+    //  Clears our intervalId
+    //  We just pass the name of the interval
+    //  to the clearInterval function.
+    clearInterval(intervalId);
+  }
 
-questionTextGenerator(objTrivia[1]);
+  //  Execute the run function.
+  run();
+
+
+//  Execute the run function.
+};
+
+textGenerator();
 });
