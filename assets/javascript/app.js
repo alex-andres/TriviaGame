@@ -43,13 +43,13 @@
 // Declaration and Data Type & Valuse assignment of Variables
 var timerCount = 20;
 var transitionTimerCount = 4;
-var questionNumber = 0;
+var questionNumber = 1;
 var intervalId = "";
 var intervalId2 = "";
 var bolQuestionPage = false;	
 var testResult = "";
 var clickedId = "";
-var randomQuestion = [];
+var randomQuestionIndex = [];
 var arrPhilosopherChoicess = [
 	"Socrates",
 	"Plato",
@@ -78,197 +78,295 @@ var arrPhilosopherChoicess = [
 	"Michael Foucault",
 	"Emil Cioran"
 ];
+console.log(arrPhilosopherChoicess.length);
 
 var objectQuestions = {
 	arrQuestion1: ['Who famously coined the phrase " I think therefore I am"?', "Renes Descartes"]
 }
 var arrCorrectAnswer = ["Correct!", "You Got It!", "Right-o!", "You're Doing it Peter!", "Correctamundo!", "You're Right!"]
-
+var arrIncorrectAnswer =["Wrong!", "Nope!", "Study Up!", "Better Luck Next Time", "That's a Negative GhostRider", "Nuh-uh!"]
 var objTrivia = [
     { 
       "question": 'Who famously coined the phrase " I think therefore I am"?',
       "answers": ["Motaigne", "Foucault", "Immanuel Kant", "Rene Descartes"],
-      "correct": ["Rene Descartes"]
-   },
+      "correct": "Rene Descartes",
+      "src": "assets/images/Rene_Descartes.png"
+    },
    { 
       "question": "Which philosopher created the concept of the Übermensch?",
       "answers": [" Jean Paul Sartre", "La Rouchfoucauld", "Friedrich Nietzsche", "Edmund Burke"],  
-      "correct": ["Friedrich Nietzsche"]
-   },
+      "correct": "Friedrich Nietzsche",
+      "src": "assets/images/nietzsche.png"
+    },
     { 
       "question": "What school of philosophy did Marcus Aurelius practice?",
       "answers": ["Nihlism", "Stoicism", "Utilitarianism", "Taoism"],
-      "correct": ["Stoicism"]
-   },
+      "correct": "Stoicism",
+      "src": "assets/images/aurelius.png"
+    },
     { 
       "question": "What is hell in Jean Paul Sartre's play Huis Clos?",
       "answers": ["Home of the Devil", "The Human Mind", "Other People", "Capitalism"],  
-      "correct": ["Other People"]
-   },
+      "correct": "Other People",
+      "src": ""
+    },
     { 
-        "question": "Which philosopher thought that a virtuous ordinary life is just as worth striving for as one of excellence?",
-        "answers": ["Michel de Motaigne", "Renes Descartes", "Albert Camus", "La Rouchfoucauld"],  
-        "correct": ["Michel de Motaigne"]
-   },
+      "question": "Which philosopher thought that a virtuous ordinary life is just as worth striving for as one of excellence?",
+      "answers": ["Michel de Motaigne", "Renes Descartes", "Albert Camus", "La Rouchfoucauld"],  
+      "correct": "Michel de Motaigne",
+      "src": ""
+    },
     { 
-        "question": "Which school of thought did Blaise Pascal advocate for?",
-        "answers": ["Optimisim", "Pessimism", "Nihlism", "Rationalism"],  
-        "correct": ["Pessimism"]
-   },
+      "question": "Which school of thought did Blaise Pascal advocate for?",
+      "answers": ["Optimisim", "Pessimism", "Nihlism", "Rationalism"],  
+      "correct": "Pessimism",
+      "src": "assets/images/pascal.png"
+    },
     { 
-        "question": "Which Philosopher thought we are more influenced by our feelings than by reason?",
-        "answers": ["Georg Hegel", "Thomas Aquinas", "Epicurus", "David Hume"],  
-        "correct": ["David Hume"]
-   },
-   //  { 
-   //      "question": "",
-   //      "answers": [""],  
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "answers": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "answers": [""],  
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "answers": [""],  
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "answers": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "answers": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "answers": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "answers": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "answers": [""],
-   // },
-   //  { 
-   //      "question": "",
-   //      "answers": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "answers": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "answers": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "answers": [""],
-   //      "correct": [""]
-   // },
-   //  { 
-   //      "question": "",
-   //      "answers": [""],
-   //      "correct": [""]
-   // }
-
-
-
+      "question": "Which Philosopher thought we are more influenced by our feelings than by reason?",
+      "answers": ["Georg Hegel", "Thomas Aquinas", "Epicurus", "David Hume"],  
+      "correct": "David Hume",
+      "src": "assets/images/David_Hume.png"
+    }
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",	
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",	
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",
+    //   "src": ""
+    // },
+    // { 
+    //   "question": "",
+    //   "answers": [""],  
+    //   "correct": "",	
+    //   "src": ""
+    // },
+    // { 
+    // "question": "",
+    // "answers": [""],  
+    // "correct": "",	
+    // "src": ""
+ 	  // },
 ];
+	// jquery function that only runs contained content once the page is loaded
+$(function() {
+	//function that causes start button to hide title page and shows questions page and starts question timer
+	$("#start-button").on("click", function(){
+		hidePage("title");
+		showPage("question");
+		questionNumberDisplay();
+		timer();	
 
+	});
+
+
+
+
+	//function that stores the index of the clicked answer button in a var
+	$(".answer-choice").click(function() {
+      clickedId = $(this).attr("id");
+  		clickedIdIndex = clickedId.substring(clickedId.length - 1) - 1
+  		answerChecker()
+   });
+	//function that causes restart button to hide results page and show title page
+	$("#restart-button").on("click", function(){
+		hidePage("results");
+		showPage("title");
+		timerCount = 20;
+		transitionTimerCount = 4;
+		questionNumber = 1;
+		intervalId = "";
+		intervalId2 = "";
+		bolQuestionPage = false;	
+		testResult = "";
+		clickedId = "";
+		randomQuestionIndex = [];
+	});
 
 
 //function that generates a random index to generate a new question
 function questionRandomizer(){
-	randomQuestion = Math.floor(Math.random() * objTrivia.length);
+	randomQuestionIndex = Math.floor(Math.random() * objTrivia.length);
 	console.log(objTrivia.length);
 
 };
 //function that splices the indexed random number from the objTrivia array
 function questionSplicer(){
-		objTrivia.splice([randomQuestion], 1);
+		objTrivia.splice([randomQuestionIndex], 1);
 };
 
-console.log(randomQuestion);
-
+//function that takes title, question, answer || results as argument and hides respective page
 function hidePage(pageName){
 	$("#" + pageName + "-page").addClass("hide");
 };
+//function that takes title, question, answer || results as argument and displays respective page
 function showPage(pageName){
 	$("#" + pageName + "-page").removeClass("hide");
 };
+//function that updates the question number
+function questionNumberDisplay(){
+	$("#question-number").text("Question # " + questionNumber);
+	questionNumber++;
+}
 
-	
 
 //function that generates text for 
 function textGenerator(){
 	questionRandomizer();
-	$("#question-text").text(objTrivia[randomQuestion].question);
-	for (var i = 1; i <= objTrivia[randomQuestion].answers.length; i++) {
-		$("#answer-" + i).text(objTrivia[randomQuestion].answers[i-1]);
+	$("#question-text").text(objTrivia[randomQuestionIndex].question);
+	for (var i = 1; i <= objTrivia[randomQuestionIndex].answers.length; i++) {
+		$("#answer-" + i).text(objTrivia[randomQuestionIndex].answers[i-1]);
 	};
+	console.log(randomQuestionIndex);
 	questionSplicer();
 	console.log(objTrivia.length);
-}
-
+};
+console.log(randomQuestionIndex);
+//function that generates updated information for question page and transitions to next question page
 function nextQuestion(){
 	textGenerator();
+	showPage("question");
+	hidePage("answer");
+}
+function answerChecker(){
+	if (objTrivia[randomQuestionIndex].answers[clickedIdIndex] === objTrivia[randomQuestionIndex].correct) {
+		correctAnswerPage();
+	}
+	else if (objTrivia[randomQuestionIndex].answers[clickedIdIndex] !== objTrivia[randomQuestionIndex].correct)
+		incorrectAnswerPage();
+	else if (transitionTimerCount === 0)
+		timesUpPage();
+	else
+		return -1
 }
 
 function correctAnswerPage(){
 	hidePage("question");	
 	showPage("answer");
 	//line of code that displays random correct answer affirmation
-	$("#answer-result").text(arrCorrectAnswer[Math.floor(Math.random()*arrCorrectAnswer.length)])
-	$("#answer-meme").attr("src", "./assets/images/foucalt.png" )
-	// setInterval()
+	$("#answer-result").text(arrCorrectAnswer[Math.floor(Math.random()*arrCorrectAnswer.length)]);
+	$("#answer-meme").attr("src", objTrivia[randomQuestionIndex].src);
+	transitionTimer();
 };
 
+function timesUpPage(){
+	hidePage("question");	
+	showPage("answer");
+	//line of code that displays random correct answer affirmation
+	$("#answer-result").text("Times Up!")
+	$("#answer-image").attr("src", objTrivia[randomQuestionIndex].src);
+	$("#answer-text").text("Correct Answer: " + objTrivia[2].correct);
+	transitionTimer();
+};
 function incorrectAnswerPage(){
-
+	hidePage("question");	
+	showPage("answer");
+	//line of code that displays random correct answer affirmation
+	$("#answer-result").text(arrIncorrectAnswer[Math.floor(Math.random()*arrIncorrectAnswer.length)])
+	console.log(randomQuestionIndex);
+	// $("#answer-image").attr("src", objTrivia[randomQuestionIndex].src);
+	$("#answer-text").text("Correct Answer: " + objTrivia[2].correct);
+	transitionTimer();
 };
 
 // console.log(testResult)
 
-	// jquery function that only runs contained content once the page is loaded
-$(function() {
-	//function that causes start button to hide title page and shows questions page and starts question timer
-	$("#start-button").on("click", function(){
-		$("#title-page").addClass("hide");
-		$("#question-page").removeClass("hide");
-		timer();
-	});
 
-
-	//function that causes restart button to hide results page and show title page
-	$("#restart-button").on("click", function(){
-		$("#results-page").addClass("hide");
-		$("#title-page").removeClass("hide");	
-	});
-
-	//function that stores the index of the clicked answer button in a var
-	$(".answer-choice").click(function() {
-      clickedId = $(this).attr("id");
-  		clickedIdIndex = clickedId.substring(clickedId.length - 1) - 1
-   });
 
 
 
@@ -278,16 +376,22 @@ function transitionTimer(){
   }
 	function decrement() {
     //  Decrease timerCount by one.
-    timerCount--;
-    //  Show the timerCount in the #show-timerCount tag.
-    $("#show-timerCount").text("Time Remaining: " + timerCount + " seconds");
-    //  Once timerCount hits zero...
+    transitionTimerCount--;
     
-    if (timerCount === 0) {
-    	nextQuestion
+    if (transitionTimerCount === 0) {
+    	stop();
+    	nextQuestion();
+
 
 
     }
+   	function stop() {
+
+    //  Clears our intervalId
+    //  We just pass the name of the interval
+    //  to the clearInterval function.
+    clearInterval(intervalId);
+  }
 	}
 };
  
@@ -311,7 +415,7 @@ function timer() {
     
     if (timerCount === 0) {
     	stop();
-    	correctAnswerPage()
+    	incorrectAnswerPage();
 
 
     }
