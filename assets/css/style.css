@@ -2,13 +2,13 @@
 	background-color: black;
 	color: white;
 	height: 980px;
-	margin-bottom: -100%
-	padding-bottom: 100%;
 }
 #question-number{
 padding-top: 25px;	
 }
-
+#title-h2{
+	padding-top: 25px;
+}
 .title-page-image{	
 	width: 100%;
 	padding-top: 50px;
@@ -30,12 +30,12 @@ button:hover {
     background-color: rgb(155, 155, 155);
 }
 body{
-	background-image: url("../images/Bouncing-philosophers.gif");
+	background-image: url("../images/Bouncing-philosophers-1.gif");
 	width: 100%;
 	background-repeat: no-repeat;
 	background-size: cover;
 	font-family: 'Cormorant Garamond', serif;
 	text-align: center;
-
 }
+
 
