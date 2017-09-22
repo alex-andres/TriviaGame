@@ -8,6 +8,7 @@ var numberIncorrect = 0;
 var numberUnanswered = 0;
 var arrCorrectAnswer = ["Correct!", "You Got It!", "Right-o!", "You're Doing it Peter!", "Correctamundo!", "You're Right!"]
 var arrIncorrectAnswer =["Wrong!", "Nope!", "Study Up!", "Better Luck Next Time", "That's a Negative GhostRider", "Nuh-uh!"]
+// Array containing objects for questions
 var objTrivia = [
     { 
       "question": 'Who famously coined the phrase " I think therefore I am"?',
@@ -263,8 +264,6 @@ $(function() {
 			numberIncorrect++;
 			incorrectAnswerPage();
 		}
-		else
-			return -1
 	};
 
 	function correctAnswerPage(){
