@@ -12,9 +12,9 @@ padding-top: 25px;
 	margin-top: 10px;
 	padding-top: 25px;
 	padding-bottom: 25px;
-	border-style: outset;
+/*	border-style: outset;
 	border-width: 5px;
-	border-color: rgb(170, 170, 170);
+	border-color: rgb(170, 170, 170);*/
 }
 .title-page-image{	
 	width: 100%;
@@ -45,7 +45,6 @@ body{
 	text-align: center;
 	padding-top: 25px;
 }
-
 footer {
   position: absolute;
   bottom: 0;
